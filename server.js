@@ -29,3 +29,9 @@ server.on('request', (request, response) => {
     });
   }
 });
+
+const getAllMessages = (response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.write(JSON.stringify(messages));
+  response.end();
+}
