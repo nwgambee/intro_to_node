@@ -35,3 +35,11 @@ const getAllMessages = (response) => {
   response.write(JSON.stringify(messages));
   response.end();
 }
+
+const addMessage = (newMessage, response) => {
+  messages = [...messages, newMessage];
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  let foundMessage = messages.find(message => message.id === newMessage.id)
+  response.write(JSON.stringify(foundMessage));
+  response.end();
+}
